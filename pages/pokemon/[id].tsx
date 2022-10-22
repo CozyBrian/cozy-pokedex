@@ -1,24 +1,28 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { pokemonItem } from "../../types/pokemon";
 
-const PokemonDetails: NextPage = () => {
-  const {
-    query: { id },
-  } = useRouter();
+type pokemonAPIProps = {
+  pokemon: pokemonItem;
+};
 
-  const [pokemon, setPokemon] = useState<pokemonItem>();
+type getServerProps = {
+  params: { id: string };
+};
 
-  useEffect(() => {
-    const getPokemon = async () => {
-      const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-      setPokemon(await resp.json());
-    };
-    getPokemon();
-  }, []);
+export async function getServerSideProps({ params }: getServerProps) {
+  try {
+    const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.id}`);
+    return { props: { pokemon: await resp.json() } };
+  } catch (error) {
+    return { props: { error: "failed to load" } };
+  }
+}
 
+const PokemonDetails: NextPage<pokemonAPIProps> = ({
+  pokemon,
+}: pokemonAPIProps) => {
   return (
     <div className="flex justify-center items-center w-screen min-h-screen py-16">
       <Head>

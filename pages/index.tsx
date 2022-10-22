@@ -62,7 +62,7 @@ const Home: NextPage = () => {
           <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 h-full gap-4 items-center">
             {pokemon?.results.map((item, i) => (
               <li key={i} className="flex justify-center items-center ">
-                <Link className="" href={`pokemon/${i + offset + 1}`}>
+                <Link className="" href={`pokemon/${item.name}`}>
                   <div className=" hover:bg-slate-100 hover:shadow border rounded-lg p-4 duration-200 active:bg-slate-200">
                     <div className="flex flex-col items-center">
                       <img
