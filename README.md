@@ -23,3 +23,5 @@ Since I'm using typescript, I needed to define all the types for the api request
 After running the app and verifying that everything works, I then started to focus on the styling.
 
 I wanted to impliment the search functionality but there is not enough time... and I dont have enough time to figure out why the page refetches the api when I click the backbutton.
+
+I'd to improve on the project by implimenting the search feature and fixing the back button bug... I feel its very inefficient to be making requests and starting from the beginning everytime you go back to the main page.
