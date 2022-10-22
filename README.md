@@ -17,3 +17,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 I first read through the documentation of the pokemon api that was provides to understand the various routes and features I could utilize.
 
 I then set up a basic nextjs application using the create next-app cli tool. then I installed the necessary dependencies, such as tailwind. etc
+
+Since I'm using typescript, I needed to define all the types for the api requests. So I used a the documentation for that. and then coded the types accordingly
+
+After running the app and verifying that everything works, I then started to focus on the styling.
+
+I wanted to impliment the search functionality but there is not enough time... and I dont have enough time to figure out why the page refetches the api when I click the backbutton.

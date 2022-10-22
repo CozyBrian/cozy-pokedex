@@ -1,15 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { off } from "process";
 import { useEffect, useState } from "react";
-
-type pokemonApiResponseType = {
-  count: number;
-  next: string;
-  previous: string | null;
-  results: { name: string; url: string }[];
-};
+import { pokemonApiResponseType } from "../types/pokemon";
 
 const Home: NextPage = () => {
   const [pokemon, setPokemon] = useState<pokemonApiResponseType>();
@@ -62,7 +55,7 @@ const Home: NextPage = () => {
           <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 h-full gap-4 items-center">
             {pokemon?.results.map((item, i) => (
               <li key={i} className="flex justify-center items-center ">
-                <Link className="" href={`pokemon/${item.name}`}>
+                <Link className="" href={`pokemon/${item.name}`} passHref>
                   <div className=" hover:bg-slate-100 hover:shadow border rounded-lg p-4 duration-200 active:bg-slate-200">
                     <div className="flex flex-col items-center">
                       <img
